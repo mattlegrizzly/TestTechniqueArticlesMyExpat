@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div style="margin-top: 1em;">
+{% for value in sources %}
+<a href="{{value.url}}">
+ <div class="card mb-3">
+    <h3 class="card-header">{{value.title}}</h3>
+    <div class="card-body">
+      <h5 class="card-title">{{value.author}}</h5>
+    </div>
+    <img style="width: 50%; display: block;" src="{{value.urlToImage}}" alt="Card image">
+    <div class="card-body">
+      <p class="card-text">{{value.description}}</p>
+    </div>
+    <div class="card-footer text-muted">
+        Ecrit le {{value.publishedAt | date('d/m/y') }} à {{value.publishedAt | date('H:i') }}
+    </div>
+ </div>
+
+</a>
+    <br>
+{% endfor %}
+</div>
+
+{% endblock %}

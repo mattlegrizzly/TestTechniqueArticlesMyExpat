@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div style="margin-top: 1em;">
+{% for value in sources %}
+<a href="{{path('source_show', {'id':value.id})}}">
+<div class="card text-white bg-primary mb-3" style="max-width: 200rem;">
+    <div class="card-header">{{value.category}}</div>
+    <div class="card-body">
+      <h4 class="card-title">{{value.id}}</h4>
+      <p class="card-text">{{value.description}}</p>
+    </div>
+  </div>
+</a>
+    <br>
+{% endfor %}
+</div>
+
+{% endblock %}
